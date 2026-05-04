@@ -28,3 +28,22 @@ function rotateString(s, goal) {
 }
 
 console.log(rotateString('abcde', 'cdeab'))
+
+// second way to solve.
+
+
+function rotateString2(s, goal) {
+  if (s.length !== goal.length) return false
+
+  for (let i = 0; i < s.length; i++) {
+    // this for edge case , what if s = abc and goal = abc ( that means no rotation needed.)
+    if (s === goal) {
+      return true
+    }
+
+    // slice remove the first char and s[0] adds the first character at the end of the sliced string. and also that is in loop so...
+    s = s.slice(1) + s[0]
+  }
+}
+
+console.log(rotateString2('abcde', 'cdeab'))
